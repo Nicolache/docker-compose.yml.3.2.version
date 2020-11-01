@@ -1,0 +1,13 @@
+version: '3.2'
+services:
+  build_backend:
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1.100-buster
+    environment:
+      MYSQL_DATABASE: mybb
+    restart: on-failure
+    volumes:
+     - ./:/builds
+     - ./nuget_cache:/nuget_cache
+
+    command: "sleep infinity"
+    network_mode: "host"
